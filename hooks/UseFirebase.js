@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { collection, onSnapshot } from "firebase/firestore"
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
 import firestore from '../firebase'
 
 export const UseFirebase = (data) => {
@@ -8,8 +8,9 @@ export const UseFirebase = (data) => {
 
   useEffect(()=>{
     const docRef = collection(firestore, data)
+    const q = query(docRef,orderBy("timestamp","desc"))
 
-    const unsub = onSnapshot(docRef, snapshot => {
+    const unsub = onSnapshot(q, snapshot => {
       let results = []
       snapshot.docs.forEach(doc => {
         results.push({ ...doc.data(), id: doc.id })
