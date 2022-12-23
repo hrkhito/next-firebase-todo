@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.js", "pages/index.js", "components/InputTodo.js", "components/AllTodos.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.js", "pages/index.js", "components/Form.jsx", "components/TodosGet.jsx"],
   "exclude": ["node_modules"]
 }
