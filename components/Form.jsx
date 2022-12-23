@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import firestore from '../firebase'
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
 export const Form = () => {
 
@@ -12,7 +12,7 @@ export const Form = () => {
 
     try {
       const docRef = collection(firestore, "Todos")
-      await addDoc(docRef, { title })
+      await addDoc(docRef, { title, timestamp: serverTimestamp() })
     } catch (e) {
       console.log(e)
     }
